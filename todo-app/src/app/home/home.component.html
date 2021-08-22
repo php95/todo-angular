@@ -1,18 +1,26 @@
-<h1>Todo List</h1>
-
-<form (ngSubmit)="onSubmit(local)" #local="ngForm">
-    <input 
-    type="text"
-    name="add"
-    ngModel
-    />
-    <button>Add Todo</button>
-
-</form>
-<div  *ngFor = "let todo of todos; let i=index">
-    <p style="display: inline-block; margin-right: 0.5rem;">{{i}}</p>
-    <p appAddLine style="display: inline-block; margin-right: 0.5rem">
+<div class="row offset-3">
+    <h1>Todo List</h1>
+</div>
+<div class="row offset-3">
+    <form (ngSubmit)="onSubmit(local)" #local="ngForm"class="col-7">
+        <input 
+        type="text"
+        name="add"
+        ngModel
+        class="form-control"
+        placeholder="Enter Todo"
+        />
+        <br>
+        <button class="w-100 btn btn-danger" >Add Todo</button>
+    </form>
+</div>
+<div class="row offset-3 mt-2 ">
+<div  *ngFor = "let todo of todos; let i=index" style="background-color: #dddddd; height: 10vh;" class="pt-1 mt-3 col-7 d-flex justify-content-between align-items-baseline" >
+    
+    <p  style="display: inline-block; margin-right: 0.5rem;">{{i}}</p>
+    <p  appAddLine style="display: inline-block; margin-right: 0.5rem">
     {{todo}}
     </p>
     <button class="btn btn-primary" (click) = "delete(i)">Remove</button>
+</div>
 </div>
